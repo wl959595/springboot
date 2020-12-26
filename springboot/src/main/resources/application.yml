@@ -1,0 +1,36 @@
+#yml文件的值之前必须要有空格
+server:port: 8080
+
+#配置JSP视图解析器
+spring:
+  mvc:
+    view:
+      prefix: pages/
+      suffix: .jsp
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: defaultDataSource
+    url: jdbc:mysql://localhost:3306/drworkshop?serverTimezone=UTC
+    #是username，不是data-username
+    username: root
+    #是password，不是data-password
+    password: 123456
+
+#各种类型的值
+caesar:
+  array: 1,2,4,5,3
+  list: 1,6,2,5,4
+  set: 1,5,8,2,6
+  map: "{'name':'a','age':'20'}"
+  properties: "{'id':'1'}"
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.caesar.entity
+
+#打印SQL日志
+logging:
+  level:
+    root: info

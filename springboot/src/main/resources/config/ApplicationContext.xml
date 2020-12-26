@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+                           <!--default-init-method="init"
+                           default-destroy-method="destroy"-->
+
+    <!-- 配置service
+        <bean> 配置需要创建的对象
+            id ：用于之后从spring容器获得实例时使用的
+            class ：需要创建实例的全限定类名
+    -->
+<!--    <bean id="studentServiceID" class="com.caesar.service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDaoID"></property>
+    </bean>
+    <bean id="studentDaoID" class="com.caesar.dao.impl.StudentDaoImpl"></bean>-->
+
+    <!-- 构造方法注入
+       * <constructor-arg> 用于配置构造方法一个参数argument
+           name ：参数的名称
+           value：设置普通数据
+           ref：引用数据，一般是另一个bean id值
+
+           index ：参数的索引号，从0开始 。如果只有索引，匹配到了多个构造方法时，默认使用第一个。
+           type ：确定参数类型
+       例如：使用名称name
+           <constructor-arg name="username" value="jack"></constructor-arg>
+           <constructor-arg name="age" value="18"></constructor-arg>
+       例如2：【类型type 和  索引 index】
+           <constructor-arg index="0" type="java.lang.String" value="1"></constructor-arg>
+           <constructor-arg index="1" type="java.lang.Integer" value="2"></constructor-arg>
+   -->
+<!--    <bean id="studentID" class="com.caesar.entity.Student">
+        <constructor-arg index="0" type="java.lang.String" value="Caesar"></constructor-arg>
+        <constructor-arg index="1" type="java.lang.Integer" value="25"></constructor-arg>
+    </bean>-->
+
+    <!-- setter方法注入
+        * 普通数据
+            <property name="" value="值">
+            等效
+            <property name="">
+                <value>值
+        * 引用数据
+            <property name="" ref="另一个bean">
+            等效
+            <property name="">
+                <ref bean="另一个bean"/>-->
+<!--    <bean id="studentID" class="com.caesar.entity.Person">
+       <property name="id" value="1"></property>
+        <property name="name">
+            <value>a</value>
+        </property>
+        <property name="student" ref="studentID"></property>
+    </bean>-->
+
+    <!--
+        集合的注入都是给<property>添加子标签
+            数组：<array>
+            List：<list>
+            Set：<set>
+            Map：<map> ，map存放k/v 键值对，使用<entry>描述
+            Properties：<props>  <prop key=""></prop>  【】
+
+        普通数据：<value>
+        引用数据：<ref>
+    -->
+<!--    <bean id="collectionBeanID" class="com.caesar.entity.CollectionBean">
+        <property name="array">
+            <array>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="1"></entry>
+                <entry key="2" value="2"></entry>
+                <entry key="3" value="3"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="1">1</prop>
+                <prop key="2">2</prop>
+                <prop key="3">3</prop>
+            </props>
+        </property>
+    </bean>-->
+
+    <!--<bean id="student" class="com.caesar.entity.Student" init-method="init" destroy-method="destroy"></bean>
+    <bean class="com.caesar.utils.BeanPostProcessorUtil"/>-->
+
+    <!-- 组件扫描，扫描含有注解的类 -->
+    <!--<context:component-scan base-package="com.caesar"></context:component-scan>-->
+</beans>
