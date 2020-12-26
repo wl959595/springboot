@@ -20,7 +20,7 @@
 <table>
   <c:forEach items="${categoryList}" var="category">
       <tr>
-          <td>类别名称：${category.name}</td>
+          <td>类别名称：${category.name},</td>
           <td>数量：${category.number}</td>
       </tr>
   </c:forEach>
